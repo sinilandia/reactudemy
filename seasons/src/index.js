@@ -20,20 +20,19 @@ class App extends React.Component {
     }
 
     componentDidMount (){
-        position => this.setState({ lat: position.coords.latitude }),
-        err => this.setState({ errorMessage: err.message });
+        return 
     }
 
     render() {
         if (this.state.lat && !this.state.errorMessage) {
-            return <div>Latitude: {this.state.lat}</div>   
-        };
-
-        if (!this.state.lat && this.state.errorMessage) {
-            return <div>Error: {this.state.errorMessage}</div>
+            return <div>Latitude: {this.state.lat}</div>;   
         }
 
-        return <div>Loading...</div>
+        if (!this.state.lat && this.state.errorMessage) {
+            return <div>Error: {this.state.errorMessage}</div>;
+        }
+
+        return <div>Loading...</div>;
     }
 }
 
